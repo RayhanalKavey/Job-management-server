@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const dbConnect = require("./utils/dbConnect");
+const jobsRoutes = require("./routes/v1/jobs.route");
 
 require("dotenv").config();
 require("colors");
@@ -20,9 +21,9 @@ app.use(express.json());
   =========================  */
 dbConnect()
   .then((client) => {
+    /* ----Job Collection and its API call---- */
     const jobCollection = client.db("jobManagement").collection("jobs");
-
-    // console.log(client);
+    app.use("/api/v1/jobs", jobsRoutes(jobCollection));
 
     app.get("/", (req, res) => {
       res.send("Welcome to the Job Management server.");
