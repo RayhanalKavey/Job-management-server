@@ -1,12 +1,11 @@
 const express = require("express");
-
 const router = express.Router();
 
 module.exports = function (jobCollection) {
   /** JS Docker
    * @api {get}
    * @apiDescription Get all Jobs
-   * @apiSuccess {Object[]} all the tools
+   * @apiSuccess {Object[]} all the jobs
    */
   router.get("/", async (req, res) => {
     let query = {};

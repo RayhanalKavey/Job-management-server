@@ -3,6 +3,7 @@ const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const dbConnect = require("./utils/dbConnect");
 const jobsRoutes = require("./routes/v1/jobs.route");
+const userRoutes = require("./routes/v1/user.route");
 
 require("dotenv").config();
 require("colors");
@@ -21,14 +22,21 @@ app.use(express.json());
   =========================  */
 dbConnect()
   .then((client) => {
-    /* ----Job Collection and its API call---- */
-    const jobCollection = client.db("jobManagement").collection("jobs");
-    app.use("/api/v1/jobs", jobsRoutes(jobCollection));
+    try {
+      /* ----Job Collection and Jobs API call---- */
+      const jobCollection = client.db("jobManagement").collection("jobs");
+      app.use("/api/v1/jobs", jobsRoutes(jobCollection));
 
-    app.get("/", (req, res) => {
-      res.send("Welcome to the Job Management server.");
-    });
+      /* ----User Collection and User API call---- */
+      const userCollection = client.db("jobManagement").collection("user");
+      app.use("/api/v1/user", userRoutes(userCollection));
 
+      // testing server
+      app.get("/", (req, res) => {
+        res.send("Welcome to the Job Management server.");
+      });
+    } finally {
+    }
     // Start the server once connected to the database
     app.listen(port, () => {
       console.log(
