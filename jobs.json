@@ -3,180 +3,241 @@
     "position": "Software Engineer",
     "location": "San Francisco, CA",
     "company": "Google",
-    "logo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+    "logo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "UX Designer",
     "location": "New York, NY",
     "company": "Apple",
-    "logo": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202103120855"
+    "logo": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202103120855",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Data Analyst",
     "location": "Seattle, WA",
     "company": "Amazon",
-    "logo": "https://www.amazon.com/favicon.ico"
+    "logo": "https://www.amazon.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Marketing Manager",
     "location": "Los Angeles, CA",
     "company": "Nike",
-    "logo": "https://www.nike.com/favicon.ico"
+    "logo": "https://www.nike.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Sales Associate",
     "location": "Chicago, IL",
     "company": "Adidas",
-    "logo": "https://www.adidas.com/favicon.ico"
-  },
-  {
-    "position": "Product Manager",
-    "location": "Boston, MA",
-    "company": "Under Armour",
-    "logo": "https://www.underarmour.com/assets/img/favicons/favicon-32x32.png"
-  },
-  {
-    "position": "Financial Analyst",
-    "location": "San Francisco, CA",
-    "company": "JP Morgan Chase",
-    "logo": "https://www.jpmorganchase.com/content/dam/shared/logos/jpmc-logo-icon-256x256.png"
-  },
-  {
-    "position": "Investment Banker",
-    "location": "New York, NY",
-    "company": "Goldman Sachs",
-    "logo": "https://www.goldmansachs.com/favicon.ico"
-  },
-  {
-    "position": "Accountant",
-    "location": "Chicago, IL",
-    "company": "Deloitte",
-    "logo": "https://www2.deloitte.com/etc/clientlibs/deloitte/us-favicon.ico"
-  },
-  {
-    "position": "Teacher",
-    "location": "Denver, CO",
-    "company": "Denver Public Schools",
-    "logo": "https://www.dpsk12.org/wp-content/themes/dps/assets/img/favicon.png"
+    "logo": "https://www.adidas.com/favicon.ico",
+    "fresherJob": true,
+    "experiencedJob": false
   },
   {
     "position": "Professor",
     "location": "Cambridge, MA",
     "company": "Harvard University",
-    "logo": "https://www.harvard.edu/favicon.ico"
+    "logo": "https://www.harvard.edu/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Research Assistant",
     "location": "Washington, D.C.",
     "company": "National Institutes of Health",
-    "logo": "https://www.nih.gov/themes/custom/nih/favicon.ico"
+    "logo": "https://www.nih.gov/themes/custom/nih/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Graphic Designer",
     "location": "Los Angeles, CA",
     "company": "Disney",
-    "logo": "https://www.disney.com/favicon.ico"
+    "logo": "https://www.disney.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Art Director",
     "location": "New York, NY",
     "company": "HBO",
-    "logo": "https://www.hbo.com/favicon.ico"
+    "logo": "https://www.hbo.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "UI/UX Designer",
     "location": "Seattle, WA",
     "company": "Microsoft",
-    "logo": "https://www.microsoft.com/favicon.ico"
+    "logo": "https://www.microsoft.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Front-end Developer",
     "location": "San Francisco, CA",
     "company": "Salesforce",
-    "logo": "https://www.salesforce.com/etc.clientlibs/sfdc-aem-www/clientlibs_base/images/favicon.ico"
+    "logo": "https://www.salesforce.com/etc.clientlibs/sfdc-aem-www/clientlibs_base/images/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Back-end Developer",
     "location": "New York, NY",
     "company": "Facebook",
-    "logo": "https://www.facebook.com/favicon.ico"
+    "logo": "https://www.facebook.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Full-stack Developer",
     "location": "Seattle, WA",
     "company": "Oracle",
-    "logo": "https://www.oracle.com/favicon.ico"
+    "logo": "https://www.oracle.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Customer Service Representative",
     "location": "Phoenix, AZ",
     "company": "American Airlines",
-    "logo": "https://www.aa.com/favicon.ico"
+    "logo": "https://www.aa.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Flight Attendant",
     "location": "Dallas, TX",
     "company": "Southwest Airlines",
-    "logo": "https://www.southwest.com/assets/images/global/favicon.ico"
+    "logo": "https://www.southwest.com/assets/images/global/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
+  {
+    "position": "Product Manager",
+    "location": "Boston, MA",
+    "company": "Under Armour",
+    "logo": "https://www.underarmour.com/assets/img/favicons/favicon-32x32.png",
+    "fresherJob": true,
+    "experiencedJob": false
+  },
+  {
+    "position": "Financial Analyst",
+    "location": "San Francisco, CA",
+    "company": "JP Morgan Chase",
+    "logo": "https://www.jpmorganchase.com/content/dam/shared/logos/jpmc-logo-icon-256x256.png",
+    "fresherJob": true,
+    "experiencedJob": false
+  },
+  {
+    "position": "Investment Banker",
+    "location": "New York, NY",
+    "company": "Goldman Sachs",
+    "logo": "https://www.goldmansachs.com/favicon.ico",
+    "fresherJob": true,
+    "experiencedJob": false
+  },
+  {
+    "position": "Accountant",
+    "location": "Chicago, IL",
+    "company": "Deloitte",
+    "logo": "https://www2.deloitte.com/etc/clientlibs/deloitte/us-favicon.ico",
+    "fresherJob": true,
+    "experiencedJob": false
+  },
+  {
+    "position": "Teacher",
+    "location": "Denver, CO",
+    "company": "Denver Public Schools",
+    "logo": "https://www.dpsk12.org/wp-content/themes/dps/assets/img/favicon.png",
+    "fresherJob": true,
+    "experiencedJob": false
+  },
+
   {
     "position": "Pilot",
     "location": "Atlanta, GA",
     "company": "Delta Air Lines",
-    "logo": "https://www.delta.com/etc/designs/delta/clientlibs-static/main/images/favicon.ico"
+    "logo": "https://www.delta.com/etc/designs/delta/clientlibs-static/main/images/favicon.ico",
+    "fresherJob": true,
+    "experiencedJob": false
   },
   {
     "position": "Product Manager",
     "location": "San Francisco, CA",
     "company": "Uber",
-    "logo": "https://www.uber.com/favicon.ico"
+    "logo": "https://www.uber.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Business Analyst",
     "location": "New York, NY",
     "company": "Airbnb",
-    "logo": "https://www.airbnb.com/favicon.ico"
+    "logo": "https://www.airbnb.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Operations Manager",
     "location": "Seattle, WA",
     "company": "Lyft",
-    "logo": "https://www.lyft.com/favicon.ico"
+    "logo": "https://www.lyft.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "HR Manager",
     "location": "Los Angeles, CA",
     "company": "Netflix",
-    "logo": "https://www.netflix.com/favicon.ico"
+    "logo": "https://www.netflix.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Recruiter",
     "location": "New York, NY",
     "company": "LinkedIn",
-    "logo": "https://www.linkedin.com/favicon.ico"
+    "logo": "https://www.linkedin.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "People Operations Specialist",
     "location": "Seattle, WA",
     "company": "Google",
-    "logo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+    "logo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Lawyer",
     "location": "San Francisco, CA",
     "company": "Morrison & Foerster",
-    "logo": "https://www.mofo.com/favicon.ico"
+    "logo": "https://www.mofo.com/favicon.ico",
+    "fresherJob": false,
+    "experiencedJob": true
   },
   {
     "position": "Paralegal",
     "location": "New York, NY",
     "company": "Skadden, Arps, Slate, Meagher & Flom",
-    "logo": "https://www.skadden.com/images/favicon.ico"
+    "logo": "https://www.skadden.com/images/favicon.ico",
+    "fresherJob": true,
+    "experiencedJob": false
   },
   {
     "position": "Legal Assistant",
     "location": "Chicago, IL",
     "company": "Kirkland & Ellis",
-    "logo": "https://www.kirkland.com/favicon.ico"
+    "logo": "https://www.kirkland.com/favicon.ico",
+    "fresherJob": true,
+    "experiencedJob": false
   }
 ]

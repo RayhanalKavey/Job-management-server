@@ -11,6 +11,7 @@ require("colors");
 const app = express();
 const port = process.env.PORT || 5003;
 
+// Get dummy jobs from jobs.json file
 // const jobs = require("./jobs.json");
 
 //Middleware
@@ -22,6 +23,10 @@ app.use(express.json());
   =========================  */
 dbConnect()
   .then((client) => {
+    /* ----------------------------------
+    * All collection and API call start
+    ----------------------------------- */
+
     try {
       /* ----Job Collection and Jobs API call---- */
       const jobCollection = client.db("jobManagement").collection("jobs");
@@ -32,11 +37,16 @@ dbConnect()
       app.use("/api/v1/user", userRoutes(userCollection));
 
       // testing server
-      app.get("/", (req, res) => {
+      app.get("/api/v1", (req, res) => {
         res.send("Welcome to the Job Management server.");
       });
     } finally {
     }
+
+    /* --------------------------------
+    * All collection and API call end
+    --------------------------------- */
+
     // Start the server once connected to the database
     app.listen(port, () => {
       console.log(

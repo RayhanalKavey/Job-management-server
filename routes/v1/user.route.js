@@ -9,12 +9,13 @@ module.exports = (userCollection) => {
    */
   router.get("/", async (req, res) => {
     let query = {};
-    const users = await userCollection.find().toArray();
+    const users = await userCollection.find(query).toArray();
     res.send(users);
   });
 
   router.post("/", async (req, res) => {
     const user = req.body;
+    // console.log("Received post employer", user);
     const result = await userCollection.insertOne(user);
     res.send(result);
   });

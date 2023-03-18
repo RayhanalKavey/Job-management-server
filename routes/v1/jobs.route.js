@@ -12,6 +12,11 @@ module.exports = function (jobCollection) {
     const jobs = await jobCollection.find(query).toArray();
     res.send(jobs);
   });
+  router.post("/", async (req, res) => {
+    const job = req.body;
+    const result = await jobCollection.insertOne(job);
+    res.send(result);
+  });
 
   return router;
 };
