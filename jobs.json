@@ -5,6 +5,7 @@
     "company": "Google",
     "logo": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
     "fresherJob": false,
+    "jobType": "hybrid", ///
     "experiencedJob": true
   },
   {
@@ -13,6 +14,7 @@
     "company": "Apple",
     "logo": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202103120855",
     "fresherJob": false,
+    "jobType": "onSite", ///
     "experiencedJob": true
   },
   {
@@ -20,16 +22,22 @@
     "location": "Seattle, WA",
     "company": "Amazon",
     "logo": "https://www.amazon.com/favicon.ico",
+    "jobType": "remote", ///
     "fresherJob": false,
-    "experiencedJob": true
+    "experiencedJob": true,
+    "email": "qqq@qq.com"
   },
   {
-    "position": "Marketing Manager",
-    "location": "Los Angeles, CA",
-    "company": "Nike",
+    "position": "Marketing Manager", ///
+    "location": "Los Angeles, CA", ///
+    "company": "Nike", ///
+    "jobType": "remote", ///
     "logo": "https://www.nike.com/favicon.ico",
     "fresherJob": false,
-    "experiencedJob": true
+    "experiencedJob": true,
+    "email": "qqq@qq.com",
+    "companyDetail": "Detail of the company",
+    "jobDetail": "Job details here"
   },
   {
     "position": "Sales Associate",
@@ -37,6 +45,7 @@
     "company": "Adidas",
     "logo": "https://www.adidas.com/favicon.ico",
     "fresherJob": true,
+    "email": "qqq@qq.com",
     "experiencedJob": false
   },
   {

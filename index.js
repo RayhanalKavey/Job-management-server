@@ -40,6 +40,11 @@ dbConnect()
       app.get("/api/v1", (req, res) => {
         res.send("Welcome to the Job Management server.");
       });
+      app.get("/", (req, res) => {
+        res.send(
+          "Welcome to the Job Management server. base starting route= http....../api/v1"
+        );
+      });
     } finally {
     }
 
