@@ -25,6 +25,17 @@ module.exports = function (jobCollection) {
     const result = await jobCollection.deleteOne(query);
     res.send(result);
   });
+  router.put("/:id", async (req, res) => {
+    const id = req.params.id;
+    const newJob = req.body;
+    const filter = { _id: new ObjectId(id) };
+    const options = { upsert: true };
+    const updatedDoc = {
+      $set: newJob,
+    };
+    const result = await jobCollection.updateOne(filter, updatedDoc, options);
+    res.send(result);
+  });
 
   return router;
 };
