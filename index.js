@@ -4,6 +4,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const dbConnect = require("./utils/dbConnect");
 const jobsRoutes = require("./routes/v1/jobs.route");
 const userRoutes = require("./routes/v1/user.route");
+const applyRoutes = require("./routes/v1/apply.route");
 
 require("dotenv").config();
 require("colors");
@@ -35,6 +36,10 @@ dbConnect()
       /* ----User Collection and User API call---- */
       const userCollection = client.db("jobManagement").collection("user");
       app.use("/api/v1/user", userRoutes(userCollection));
+
+      /* ----User Collection and User API call---- */
+      const applyCollection = client.db("jobManagement").collection("apply");
+      app.use("/api/v1/apply", applyRoutes(applyCollection));
 
       // testing server
       app.get("/api/v1", (req, res) => {
