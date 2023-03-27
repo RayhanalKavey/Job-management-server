@@ -19,5 +19,18 @@ module.exports = (userCollection) => {
     const result = await userCollection.insertOne(user);
     res.send(result);
   });
+  router.put("/:id", async (req, res) => {
+    const id = req.params.id;
+    console.log("id", id);
+    const newUser = req.body;
+    console.log("newUser", newUser);
+    const filter = { _id: new ObjectId(id) };
+    const options = { upsert: true };
+    const updatedDoc = {
+      $set: newUser,
+    };
+    const result = await jobCollection.updateOne(filter, updatedDoc, options);
+    res.send(result);
+  });
   return router;
 };

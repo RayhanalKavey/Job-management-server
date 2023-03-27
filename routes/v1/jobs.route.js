@@ -14,6 +14,14 @@ module.exports = function (jobCollection) {
     const jobs = await jobCollection.find(query).toArray();
     res.send(jobs);
   });
+  router.get("/apply-job/:id", async (req, res) => {
+    let query = req.query;
+    console.log("query", query);
+    const data = await jobCollection.find(query).toArray();
+    console.log("apply-job query", data);
+    res.send(data);
+    res.send("hi");
+  });
   router.post("/", async (req, res) => {
     const job = req.body;
     const result = await jobCollection.insertOne(job);

@@ -8,6 +8,7 @@ module.exports = function (applyCollection) {
     const data = await applyCollection.find(query).toArray();
     res.send(data);
   });
+
   /** JS Docker
    * @api {get}
    * @apiDescription post a job apply for a registered job seeker

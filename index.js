@@ -6,6 +6,7 @@ const jobsRoutes = require("./routes/v1/jobs.route");
 const userRoutes = require("./routes/v1/user.route");
 const applyRoutes = require("./routes/v1/apply.route");
 const reviewRoutes = require("./routes/v1/review.route");
+const blogRoutes = require("./routes/v1/blog.route");
 
 require("dotenv").config();
 require("colors");
@@ -41,9 +42,12 @@ dbConnect()
       /* ----User Collection and User API call---- */
       const applyCollection = client.db("jobManagement").collection("apply");
       app.use("/api/v1/apply", applyRoutes(applyCollection));
-      /* ----User review Collection and User API call---- */
+      /* ----User review Collection and review API call---- */
       const reviewCollection = client.db("jobManagement").collection("reviews");
       app.use("/api/v1/reviews", reviewRoutes(reviewCollection));
+      /* ----Blog Collection and blog API call---- */
+      const blogsCollection = client.db("jobManagement").collection("blogs");
+      app.use("/api/v1/blogs", blogRoutes(blogsCollection));
 
       // testing server
       app.get("/api/v1", (req, res) => {
