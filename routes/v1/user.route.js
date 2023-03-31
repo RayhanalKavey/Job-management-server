@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const { ObjectId } = require("mongodb");
 
 module.exports = (userCollection) => {
   /** JS Docker
@@ -21,15 +22,13 @@ module.exports = (userCollection) => {
   });
   router.put("/:id", async (req, res) => {
     const id = req.params.id;
-    console.log("id", id);
     const newUser = req.body;
-    console.log("newUser", newUser);
     const filter = { _id: new ObjectId(id) };
     const options = { upsert: true };
     const updatedDoc = {
       $set: newUser,
     };
-    const result = await jobCollection.updateOne(filter, updatedDoc, options);
+    const result = await userCollection.updateOne(filter, updatedDoc, options);
     res.send(result);
   });
   return router;
