@@ -13,22 +13,32 @@ module.exports = (userCollection) => {
     const users = await userCollection.find(query).toArray();
     res.send(users);
   });
-
   router.post("/", async (req, res) => {
     const user = req.body;
     // console.log("Received post employer", user);
     const result = await userCollection.insertOne(user);
     res.send(result);
   });
-  router.put("/:id", async (req, res) => {
-    const id = req.params.id;
+  router.patch("/employer", async (req, res) => {
+    const id = req.body._id;
     const newUser = req.body;
     const filter = { _id: new ObjectId(id) };
-    const options = { upsert: true };
     const updatedDoc = {
-      $set: newUser,
+      $set: { isEmployer: true, regAsEmployer: newUser },
     };
-    const result = await userCollection.updateOne(filter, updatedDoc, options);
+
+    const result = await userCollection.updateOne(filter, updatedDoc);
+    res.send(result);
+  });
+  router.patch("/jobSeeker", async (req, res) => {
+    const id = req.body._id;
+    const newUser = req.body;
+    const filter = { _id: new ObjectId(id) };
+    const updatedDoc = {
+      $set: { isJobSeeker: true, regAsJobSeeker: newUser },
+    };
+
+    const result = await userCollection.updateOne(filter, updatedDoc);
     res.send(result);
   });
   return router;

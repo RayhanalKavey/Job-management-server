@@ -4,7 +4,6 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const dbConnect = require("./utils/dbConnect");
 const jobsRoutes = require("./routes/v1/jobs.route");
 const userRoutes = require("./routes/v1/user.route");
-const applyRoutes = require("./routes/v1/apply.route");
 const reviewRoutes = require("./routes/v1/review.route");
 const blogRoutes = require("./routes/v1/blog.route");
 
@@ -39,9 +38,7 @@ dbConnect()
       const userCollection = client.db("jobManagement").collection("user");
       app.use("/api/v1/user", userRoutes(userCollection));
 
-      /* ----User Collection and User API call---- */
-      const applyCollection = client.db("jobManagement").collection("apply");
-      app.use("/api/v1/apply", applyRoutes(applyCollection));
+    
       /* ----User review Collection and review API call---- */
       const reviewCollection = client.db("jobManagement").collection("reviews");
       app.use("/api/v1/reviews", reviewRoutes(reviewCollection));
