@@ -14,6 +14,18 @@ module.exports = function (jobCollection) {
     const jobs = await jobCollection.find(query).toArray();
     res.send(jobs);
   });
+  router.get("/pagination", async (req, res) => {
+    let query = {};
+    const page = req.query.page;
+    const size = parseInt(req.query.size);
+    const jobs = await jobCollection
+      .find(query)
+      .skip(page * size)
+      .limit(size)
+      .toArray();
+    const count = await jobCollection.estimatedDocumentCount();
+    res.send({ jobs, count });
+  });
   // router.get("/apply-job/:id", async (req, res) => {
   //   let query = req.query;
   //   console.log("query", query);
