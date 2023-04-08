@@ -14,6 +14,16 @@ module.exports = function (jobCollection) {
     const jobs = await jobCollection.find(query).toArray();
     res.send(jobs);
   });
+  router.get("/applied-jobs", async (req, res) => {
+    let query = {};
+    const userId = req.query.userId;
+    const jobs = await jobCollection
+      .find({ "applicants.userId": userId })
+      .sort({ currentDate: -1 })
+      .toArray();
+
+    res.send(jobs);
+  });
   router.get("/pagination", async (req, res) => {
     let query = {};
     const page = req.query.page;
@@ -26,14 +36,7 @@ module.exports = function (jobCollection) {
     const count = await jobCollection.estimatedDocumentCount();
     res.send({ jobs, count });
   });
-  // router.get("/apply-job/:id", async (req, res) => {
-  //   let query = req.query;
-  //   console.log("query", query);
-  //   const data = await jobCollection.find(query).toArray();
-  //   console.log("apply-job query", data);
-  //   res.send(data);
-  //   res.send("hi");
-  // });
+
   router.post("/", async (req, res) => {
     const job = req.body;
     const result = await jobCollection.insertOne(job);
@@ -66,7 +69,6 @@ module.exports = function (jobCollection) {
     const updatedDoc = {
       $push: { applicants: { userId, userEmail, appliedTime } },
     };
-    console.log(updatedDoc);
     const result = await jobCollection.updateOne(filter, updatedDoc);
     // if (result.acknowledged) {
     // res.send(result);
