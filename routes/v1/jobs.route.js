@@ -15,13 +15,19 @@ module.exports = function (jobCollection) {
     res.send(jobs);
   });
   router.get("/applied-jobs", async (req, res) => {
-    let query = {};
     const userId = req.query.userId;
     const jobs = await jobCollection
       .find({ "applicants.userId": userId })
       .sort({ currentDate: -1 })
       .toArray();
-
+    res.send(jobs);
+  });
+  router.get("/posted-jobs", async (req, res) => {
+    const email = req.query.email;
+    const jobs = await jobCollection
+      .find({ email: email })
+      .sort({ currentDate: -1 })
+      .toArray();
     res.send(jobs);
   });
   router.get("/pagination", async (req, res) => {
