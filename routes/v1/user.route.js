@@ -13,6 +13,15 @@ module.exports = (userCollection) => {
     const users = await userCollection.find(query).toArray();
     res.send(users);
   });
+  router.get("/current", async (req, res) => {
+    const email = req.query.email;
+    const user = await userCollection.find({ userEmail: email }).toArray();
+    if (user[0] && email) {
+      res.send({ status: true, user: user[0] });
+    } else {
+      res.send({ status: false });
+    }
+  });
   router.post("/", async (req, res) => {
     const user = req.body;
     // console.log("Received post employer", user);

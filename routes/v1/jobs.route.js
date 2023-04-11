@@ -14,6 +14,12 @@ module.exports = function (jobCollection) {
     const jobs = await jobCollection.find(query).toArray();
     res.send(jobs);
   });
+  router.get("/applicant-job/:id", async (req, res) => {
+    const id = req.params.id;
+    const query = { _id: new ObjectId(id) };
+    const job = await jobCollection.findOne(query);
+    res.send(job);
+  });
   router.get("/applied-jobs", async (req, res) => {
     const userId = req.query.userId;
     const jobs = await jobCollection
