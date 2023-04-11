@@ -11,7 +11,10 @@ module.exports = function (jobCollection) {
    */
   router.get("/", async (req, res) => {
     let query = {};
-    const jobs = await jobCollection.find(query).toArray();
+    const jobs = await jobCollection
+      .find(query)
+      .sort({ currentDate: -1 })
+      .toArray();
     res.send(jobs);
   });
   router.get("/applicant-job/:id", async (req, res) => {
