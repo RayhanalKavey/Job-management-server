@@ -13,6 +13,15 @@ module.exports = (userCollection) => {
     const users = await userCollection.find(query).toArray();
     res.send(users);
   });
+  router.get("/applicant/:id", async (req, res) => {
+    const id = req.params.id;
+    const query = { _id: new ObjectId(id) };
+    const user = await userCollection.find(query).toArray();
+    const filteredInfo = user[0]?.regAsJobSeeker;
+
+    // console.log(user);
+    res.send(filteredInfo);
+  });
   router.get("/current", async (req, res) => {
     const email = req.query.email;
     const user = await userCollection.find({ userEmail: email }).toArray();
