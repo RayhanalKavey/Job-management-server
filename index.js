@@ -11,7 +11,7 @@ require("dotenv").config();
 require("colors");
 
 const app = express();
-const port = process.env.PORT || 5003;
+const port = process.env.PORT || 5005;
 
 // Get dummy jobs from jobs.json file
 // const jobs = require("./jobs.json");
@@ -38,7 +38,6 @@ dbConnect()
       const userCollection = client.db("jobManagement").collection("user");
       app.use("/api/v1/user", userRoutes(userCollection));
 
-    
       /* ----User review Collection and review API call---- */
       const reviewCollection = client.db("jobManagement").collection("reviews");
       app.use("/api/v1/reviews", reviewRoutes(reviewCollection));

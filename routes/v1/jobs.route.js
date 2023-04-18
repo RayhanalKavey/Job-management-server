@@ -78,16 +78,53 @@ module.exports = function (jobCollection) {
     const jobId = req.body.applyJobId;
     const userId = req.body.applyUserId;
     const userEmail = req.body.applyUserEmail;
+    const appliedTime = req.body.currentDate;
 
-    const appliedTime = new Date();
     const filter = { _id: new ObjectId(jobId) };
     const updatedDoc = {
-      $push: { applicants: { userId, userEmail, appliedTime } },
+      $push: { applicants: { userId, userEmail, appliedTime, jobId } },
     };
     const result = await jobCollection.updateOne(filter, updatedDoc);
     // if (result.acknowledged) {
     // res.send(result);
     // }
+    res.send(result);
+  });
+  router.patch("/employerMessage", async (req, res) => {
+    const jobId = req.body.jobId;
+    const userId = req.body.userId;
+    const message = req.body.message;
+    const messageDate = req.body.messageDate;
+    const filter = { _id: new ObjectId(jobId), "applicants.userId": userId };
+    const updatedDoc = {
+      $push: {
+        "applicants.$.conversation": {
+          text: message,
+          time: messageDate,
+          employerSender: true,
+        },
+      },
+    };
+    const result = await jobCollection.updateOne(filter, updatedDoc);
+    res.send(result);
+  });
+  router.patch("/jobSeekerMessage", async (req, res) => {
+    // console.log(req.body);
+    const jobId = req.body.jobId;
+    const userId = req.body.userId;
+    const message = req.body.message;
+    const messageDate = req.body.messageDate;
+    const filter = { _id: new ObjectId(jobId), "applicants.userId": userId };
+    const updatedDoc = {
+      $push: {
+        "applicants.$.conversation": {
+          text: message,
+          time: messageDate,
+          jobSeekerSender: true,
+        },
+      },
+    };
+    const result = await jobCollection.updateOne(filter, updatedDoc);
     res.send(result);
   });
 
