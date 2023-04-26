@@ -17,6 +17,32 @@ module.exports = function (jobCollection) {
       .toArray();
     res.send(jobs);
   });
+  router.get("/fresherJobs", async (req, res) => {
+    let query = {};
+    let jobType = req.query.jobType;
+    if (jobType === "fresher") {
+      query = { fresherJob: true };
+    }
+    const jobs = await jobCollection
+      .find(query)
+      .sort({ currentDate: -1 })
+      .limit(6)
+      .toArray();
+    res.send(jobs);
+  });
+  router.get("/experiencedJobs", async (req, res) => {
+    let query = {};
+    let jobType = req.query.jobType;
+    if (jobType === "experienced") {
+      query = { experiencedJob: true };
+    }
+    const jobs = await jobCollection
+      .find(query)
+      .sort({ currentDate: -1 })
+      .limit(6)
+      .toArray();
+    res.send(jobs);
+  });
   router.get("/applicant-job/:id", async (req, res) => {
     const id = req.params.id;
     const query = { _id: new ObjectId(id) };
@@ -40,16 +66,37 @@ module.exports = function (jobCollection) {
     res.send(jobs);
   });
   router.get("/pagination", async (req, res) => {
-    let query = {};
+    let query;
+    let count;
     const page = req.query.page;
     const size = parseInt(req.query.size);
-    const jobs = await jobCollection
-      .find(query)
-      .skip(page * size)
-      .limit(size)
-      .toArray();
-    const count = await jobCollection.estimatedDocumentCount();
-    res.send({ jobs, count });
+    const jobTypes = req.query.jobTypes;
+    if (jobTypes) {
+      if (jobTypes === "All Jobs") {
+        query = {};
+        const filteredJobs = await jobCollection.find(query).toArray();
+        count = await filteredJobs.length;
+      }
+      if (jobTypes === "Fresher Jobs") {
+        query = { fresherJob: true };
+        const filteredJobs = await jobCollection.find(query).toArray();
+        count = await filteredJobs.length;
+      }
+      if (jobTypes === "Experienced Jobs") {
+        query = { experiencedJob: true };
+        const filteredJobs = await jobCollection.find(query).toArray();
+        count = await filteredJobs.length;
+      }
+
+      const jobs = await jobCollection
+        .find(query)
+        .skip(page * size)
+        .limit(size)
+        .toArray();
+      // const count = await jobCollection.estimatedDocumentCount();
+
+      res.send({ jobs, count });
+    }
   });
 
   router.post("/", async (req, res) => {
