@@ -57,6 +57,33 @@ module.exports = function (jobCollection) {
       .toArray();
     res.send(jobs);
   });
+  router.patch("/closeAJob/:id", async (req, res) => {
+    console.log("hit");
+    const id = req.params.id;
+    console.log("req.params.id", id);
+
+    const filter = { _id: new ObjectId(id) };
+
+    const updatedDoc = {
+      $set: { isClosed: true },
+    };
+    const result = await jobCollection.updateOne(filter, updatedDoc);
+
+    res.send(result);
+  });
+  router.patch("/reopenAJob/:id", async (req, res) => {
+    console.log("hit");
+    const id = req.params.id;
+
+    const filter = { _id: new ObjectId(id) };
+
+    const updatedDoc = {
+      $set: { isClosed: false },
+    };
+    const result = await jobCollection.updateOne(filter, updatedDoc);
+
+    res.send(result);
+  });
   router.get("/posted-jobs", async (req, res) => {
     const email = req.query.email;
     const jobs = await jobCollection
